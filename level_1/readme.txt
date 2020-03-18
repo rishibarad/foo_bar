@@ -49,4 +49,6 @@ Solution.solution(15324)
 Output:
     15129,169,25,1
 
-Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
+Use verify [file] to test your solution and see how it does.
+When you are finished editing your code, use submit [file] to submit your answer.
+If your solution passes the test cases, it will be removed from your home folder.
