@@ -1,18 +1,17 @@
 """level 1"""
 
 
-def solution(x):
+def solution(area):
     squares = []
     i = 1
-    while x > 0:
-        if i ** 2 > x:
+    while area > 0:
+        if i ** 2 > area:
             sqr = (i - 1) ** 2
-            x -= sqr
+            area -= sqr
             i = 1
             squares.append(sqr)
         else:
             i += 1
-
     return squares
 
 
