@@ -2,6 +2,11 @@
 
 
 def solution(src, dest):
+    s_row, d_row = int(src / 8), int(dest / 8)
+    s_col, d_col = src % 8, dest % 8
+    print(s_row, s_col)
+    print(d_row, d_col)
+
     num_moves = 0
     return num_moves
 
