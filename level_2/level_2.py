@@ -12,7 +12,6 @@ def solution(src, dest):
     chess_board[start_pos[0]][start_pos[1]] = 0
     # queue storing knight moves
     move_queue = [start_pos]
-
     while len(move_queue) > 0:
         curr_pos = move_queue.pop(0)
         if curr_pos == end_pos:
