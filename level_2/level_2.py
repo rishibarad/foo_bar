@@ -1,17 +1,13 @@
 """level 2"""
 
 
-
 def solution(src, dest):
     start_pos = [int(src / 8), src % 8]
     end_pos = [int(dest / 8), dest % 8]
-
     # movement possibilities for the knight
     knight_moves = [[1, 2], [1, -2], [2, 1], [2, -1], [-1, 2], [-1, -2], [-2, 1], [-2, -1]]
-
     # initialize chess board with -1 to represent unvisited positions
     chess_board = [[-1 for i in range(8)] for j in range(8)]
-
     # initialize starting position
     chess_board[start_pos[0]][start_pos[1]] = 0
     # queue storing knight moves
@@ -30,10 +26,6 @@ def solution(src, dest):
                     if chess_board[new_pos[0]][new_pos[1]] == -1:
                         chess_board[new_pos[0]][new_pos[1]] = chess_board[curr_pos[0]][curr_pos[1]] + 1
                         move_queue.append(new_pos)
-
-
-
-
 
 
 def main():
