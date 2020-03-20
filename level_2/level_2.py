@@ -23,10 +23,9 @@ def solution(src, dest):
                 # check if position is visited
                 if chess_board[new_pos[0]][new_pos[1]] == -1:
                     chess_board[new_pos[0]][new_pos[1]] = chess_board[curr_pos[0]][curr_pos[1]] + 1
+                    move_queue.append(new_pos)
                     if new_pos == end_pos:
                         return chess_board[new_pos[0]][new_pos[1]]
-                    else:
-                        move_queue.append(new_pos)
 
 
 def main():
