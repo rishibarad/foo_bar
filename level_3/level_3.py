@@ -2,7 +2,7 @@
 
 
 def solution(x):
-    pass
+    return x
 
 
 def main():
