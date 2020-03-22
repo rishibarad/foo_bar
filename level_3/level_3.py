@@ -10,6 +10,8 @@ def main():
     print("test 1:\n", test_1)
     test_2 = solution([-2, -3, 4, -5])
     print("test 2:\n", test_2)
+    test_3 = solution([-7, -1, 4, 5])
+    print("test 2:\n", test_3)
     pass
 
 
