@@ -19,6 +19,7 @@ def solution(xs):
             curr_min = old_max * num
             neg_check = num
             non_zero += 1
+
         if max_prod is None or max_prod < curr_max:
             max_prod = curr_max
 
