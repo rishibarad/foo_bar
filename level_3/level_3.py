@@ -1,13 +1,13 @@
 """level 3"""
 
 
-def solution(x):
+def solution(xs):
     curr_max, curr_min = 1, 1
     max_prod = None
     pos_check = False
     neg_check, non_zero = 0, 0
 
-    for num in x:
+    for num in xs:
         if num > 0:
             curr_max *= num
             curr_min = min(curr_min * num, 1)
@@ -24,7 +24,7 @@ def solution(x):
 
     if non_zero == 0:
         return str(0)
-    elif non_zero == 1 and neg_check != 0:
+    elif non_zero == 1 and neg_check < 0:
         return str(neg_check)
     elif max_prod is None and not pos_check:
         return str(0)
@@ -32,6 +32,8 @@ def solution(x):
 
 
 def main():
+    test_0 = solution([2, -3, 1, 0, -5])
+    print("test 0:\n", test_0)
     test_1 = solution([2, 0, 2, 2, 0])
     print("test 1:\n", test_1)
     test_2 = solution([-2, -3, 4, -5])
@@ -52,6 +54,8 @@ def main():
     print("test 9:\n", test_9)
     test_10 = solution([0])
     print("test 10:\n", test_10)
+    test_11 = solution([2, 2, 2, 0, 0, -1, 0, -7])
+    print("test 11:\n", test_11)
     pass
 
 
