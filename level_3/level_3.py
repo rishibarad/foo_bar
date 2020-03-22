@@ -2,7 +2,24 @@
 
 
 def solution(x):
-    return x
+    curr_max, curr_min, max_prod = 1, 1, 1
+    pos_check = False
+
+    for num in x:
+        if num > 0:
+            curr_max *= num
+            curr_min = min(curr_min * num, 1)
+            pos_check = True
+        elif num < 0:
+            old_max = curr_max
+            curr_max = max(curr_min * num, 1)
+            curr_min = old_max * num
+        if max_prod < curr_max:
+            max_prod = curr_max
+
+    if max_prod == 1 and not pos_check:
+        return 0
+    return max_prod
 
 
 def main():
