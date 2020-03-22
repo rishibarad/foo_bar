@@ -1,36 +1,31 @@
-"""level 3"""
+from functools import *
 
 
 def solution(xs):
-    pos_prod, neg_prod = 1, 1
-    greatest_neg = None
-    non_zero = 0
+    # Your code here
+    neg_nums = []
+
+    if not xs:
+        return "0"
+    elif len(xs) == 1:
+        return str(xs[0])
 
     for num in xs:
-        if num > 0:
-            pos_prod *= num
-            non_zero += 1
-        elif num < 0:
-            if greatest_neg is None or num > greatest_neg:
-                greatest_neg = num
-            neg_prod *= num
-            non_zero += 1
+        if num < 0:
+            neg_nums.append(num)
 
-    if non_zero == 0:
-        return str(0)
-    elif non_zero == 1:
-        if neg_prod < 0:
-            return str(neg_prod)
-        else:
-            return str(pos_prod)
-    elif neg_prod < 0 and greatest_neg is not None:
-        neg_prod = int(neg_prod / greatest_neg)
-        return str(pos_prod * neg_prod)
-    elif neg_prod > 0:
-        return str(pos_prod * neg_prod)
-    else:
-        return str(pos_prod)
+    while 0 in xs:
+        xs.remove(0)
 
+    if len(neg_nums) == 1 and len(xs) == 1:
+        return "0"
+
+    if len(neg_nums) % 2 != 0:
+        greatest_neg = max(neg_nums)
+        xs.remove(greatest_neg)
+
+    max_prod = reduce(lambda x, y: x * y, xs)
+    return str(max_prod)
 
 
 def main():
@@ -42,9 +37,9 @@ def main():
     print("test 2:\n", test_2)
     test_3 = solution([-7, -1, 4, 5])
     print("test 3:\n", test_3)
-    test_4 = solution([0, 5])
+    test_4 = solution([0, 3])
     print("test 4:\n", test_4)
-    test_5 = solution([-5, -1])
+    test_5 = solution([-4, -1])
     print("test 5:\n", test_5)
     test_6 = solution([-1, -1])
     print("test 6:\n", test_6)
@@ -60,6 +55,9 @@ def main():
     print("test 11:\n", test_11)
     test_12 = solution([-2, 2, 2, 2, -1, -7])
     print("test 12:\n", test_12)
+    test_13 = solution([-2, 2, 2, 2, -3, -7])
+    print("test 13:\n", test_13)
+    # potential test: 0 0 0 0 -7
     pass
 
 
