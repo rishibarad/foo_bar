@@ -19,7 +19,8 @@ def solution(xs):
             curr_min = old_max * num
             neg_check = num
             non_zero += 1
-
+        # else:
+        #    curr_min, curr_min = 1, 1
         if max_prod is None or max_prod < curr_max:
             max_prod = curr_max
 
@@ -57,6 +58,8 @@ def main():
     print("test 10:\n", test_10)
     test_11 = solution([2, 2, 2, 0, 0, -1, 0, -7])
     print("test 11:\n", test_11)
+    test_12 = solution([-2, 2, 2, 2, -1, -7])
+    print("test 12:\n", test_12)
     pass
 
 
