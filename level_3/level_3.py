@@ -18,15 +18,19 @@ def solution(xs):
 
     if non_zero == 0:
         return str(0)
-    elif non_zero == 1 and neg_prod < 0:
-        return str(neg_prod)
-    elif neg_prod > 0:
-        return str(pos_prod * neg_prod)
-    elif greatest_neg is not None:
+    elif non_zero == 1:
+        if neg_prod < 0:
+            return str(neg_prod)
+        else:
+            return str(pos_prod)
+    elif neg_prod < 0 and greatest_neg is not None:
         neg_prod = int(neg_prod / greatest_neg)
+        return str(pos_prod * neg_prod)
+    elif neg_prod > 0:
         return str(pos_prod * neg_prod)
     else:
         return str(pos_prod)
+
 
 
 def main():
