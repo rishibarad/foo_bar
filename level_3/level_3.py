@@ -2,35 +2,31 @@
 
 
 def solution(xs):
-    curr_max, curr_min = 1, 1
-    max_prod = None
-    pos_check = False
-    neg_check, non_zero = 0, 0
+    pos_prod, neg_prod = 1, 1
+    greatest_neg = None
+    non_zero = 0
 
     for num in xs:
         if num > 0:
-            curr_max *= num
-            curr_min = min(curr_min * num, 1)
-            pos_check = True
+            pos_prod *= num
             non_zero += 1
         elif num < 0:
-            old_max = curr_max
-            curr_max = max(curr_min * num, 1)
-            curr_min = old_max * num
-            neg_check = num
+            if greatest_neg is None or num > greatest_neg:
+                greatest_neg = num
+            neg_prod *= num
             non_zero += 1
-        # else:
-        #    curr_min, curr_min = 1, 1
-        if max_prod is None or max_prod < curr_max:
-            max_prod = curr_max
 
     if non_zero == 0:
         return str(0)
-    elif non_zero == 1 and neg_check < 0:
-        return str(neg_check)
-    elif max_prod is None and not pos_check:
-        return str(0)
-    return str(max_prod)
+    elif non_zero == 1 and neg_prod < 0:
+        return str(neg_prod)
+    elif neg_prod > 0:
+        return str(pos_prod * neg_prod)
+    elif greatest_neg is not None:
+        neg_prod = int(neg_prod / greatest_neg)
+        return str(pos_prod * neg_prod)
+    else:
+        return str(pos_prod)
 
 
 def main():
